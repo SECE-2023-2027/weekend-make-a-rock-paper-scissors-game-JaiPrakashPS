@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Audiowide", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  background-color: #289bc4;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 535px;
+  width: 100%;
+  padding: 2rem 5rem;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.01);
+}
+
+.result_images {
+  display: flex;
+  gap: 7rem;
+  justify-content: center;
+}
+
+.container.start .user_result {
+  transform-origin: left;
+  animation: userShake 0.7s ease infinite;
+}
+
+@keyframes userShake {
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+.container.start .bot_result {
+  transform-origin: right;
+  animation: botShake 0.7s ease infinite;
+}
+
+@keyframes botShake {
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
+.result_images img {
+  width: 100px;
+  transition: transform 0.3s ease;
+}
+
+.result {
+  text-align: center;
+  font-size: 2rem;
+  color: #289bc4; /* updated deep violet */
+  margin: 1.5rem 0;
+}
+
+.option_images {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 2.5rem;
+  justify-content: space-evenly;
+}
+
+.container.start .option_images {
+  pointer-events: none;
+}
+
+.option_image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.option_image:hover {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+.option_image.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.option_image img {
+  width: 60px;
+  pointer-events: none;
+}
+
+.option_image p {
+  color: #289bc4;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  pointer-events: none;
+}
